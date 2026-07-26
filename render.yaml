@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: wompi-backend
+    runtime: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /api/products
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: wompi-db
+          property: connectionString
+      - key: WOMPI_API_URL
+        sync: false
+      - key: WOMPI_API_KEY
+        sync: false
+      - key: WOMPI_PUBLIC_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+
+databases:
+  - name: wompi-db
+    databaseName: wompi
+    user: wompi_user
