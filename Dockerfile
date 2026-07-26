@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
+RUN apk add --no-cache libssl1.1
+
 RUN npm install --legacy-peer-deps
 
 COPY . .
