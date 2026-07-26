@@ -2,7 +2,7 @@ export interface PaymentGateway {
   processPayment(amount: number, cardNumber: string): Promise<{ success: boolean; reason?: string }>;
 }
 
-export class WompiProvider implements PaymentGateway {
+export class TestProvider implements PaymentGateway {
   async processPayment(
     amount: number,
     cardNumber: string
@@ -40,5 +40,5 @@ export class WompiProvider implements PaymentGateway {
 }
 
 export function getPaymentProvider(): PaymentGateway {
-  return new WompiProvider();
+  return new TestProvider();
 }

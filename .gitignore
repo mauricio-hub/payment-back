@@ -11,7 +11,7 @@ yarn.lock
 # Database
 *.db
 *.db-journal
-wompi.db
+payment.db
 
 # Build
 dist/

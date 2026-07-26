@@ -1,6 +1,6 @@
-# Wompi Backend
+# Payment Backend
 
-Backend API for the Wompi payment processing application.
+Backend API for the payment processing application.
 
 ## Architecture
 
@@ -65,7 +65,7 @@ npm start
 1. Frontend sends payment request with product ID and customer details
 2. Backend creates customer record
 3. Backend creates transaction (PENDING status)
-4. Backend calls payment provider (Wompi)
+4. Backend calls payment provider
 5. If successful:
    - Update transaction to COMPLETED
    - Decrease product stock
