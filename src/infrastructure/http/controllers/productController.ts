@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getProducts } from '../use-cases/getProducts';
+import { getProducts } from '../../../domain/use-cases/getProducts';
 
 export async function listProducts(req: Request, res: Response) {
   try {

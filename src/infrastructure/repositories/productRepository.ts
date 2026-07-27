@@ -1,5 +1,5 @@
 import { prisma } from '../database/prisma';
-import { type Product } from '../types/index';
+import { type Product } from '../../domain/entities/index';
 
 export const productRepository = {
   async findAll(): Promise<Product[]> {

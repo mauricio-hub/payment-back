@@ -1,7 +1,7 @@
 import { getProducts } from '../getProducts';
-import { productRepository } from '../../repositories/productRepository';
+import { productRepository } from '../../../infrastructure/repositories/productRepository';
 
-jest.mock('../../repositories/productRepository', () => ({
+jest.mock('../../../infrastructure/repositories/productRepository', () => ({
   productRepository: {
     findAll: jest.fn(),
   },

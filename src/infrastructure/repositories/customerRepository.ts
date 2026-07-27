@@ -1,5 +1,5 @@
 import { prisma } from '../database/prisma';
-import { type Customer } from '../types/index';
+import { type Customer } from '../../domain/entities/index';
 
 export const customerRepository = {
   async create(data: {

@@ -1,5 +1,5 @@
 import { prisma } from '../database/prisma';
-import { type Delivery } from '../types/index';
+import { type Delivery } from '../../domain/entities/index';
 
 export const deliveryRepository = {
   async create(data: {

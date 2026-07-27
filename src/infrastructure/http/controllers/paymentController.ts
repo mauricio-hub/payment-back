@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { paymentRequestSchema } from '../schemas/index';
-import { processPayment } from '../use-cases/processPayment';
+import { paymentRequestSchema } from '../../../domain/entities/index';
+import { processPayment } from '../../../domain/use-cases/processPayment';
 
 export async function handlePayment(req: Request, res: Response, next: NextFunction) {
   try {

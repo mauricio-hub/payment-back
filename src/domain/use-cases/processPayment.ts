@@ -1,10 +1,10 @@
-import { customerRepository } from '../repositories/customerRepository';
-import { transactionRepository } from '../repositories/transactionRepository';
-import { deliveryRepository } from '../repositories/deliveryRepository';
-import { productRepository } from '../repositories/productRepository';
-import { getPaymentProvider } from '../services/paymentProvider';
+import { customerRepository } from '../../infrastructure/repositories/customerRepository';
+import { transactionRepository } from '../../infrastructure/repositories/transactionRepository';
+import { deliveryRepository } from '../../infrastructure/repositories/deliveryRepository';
+import { productRepository } from '../../infrastructure/repositories/productRepository';
+import { getPaymentProvider } from '../../infrastructure/services/paymentProvider';
 import { createError, ErrorCodes } from '../errors/AppError';
-import { type PaymentRequest } from '../schemas/index';
+import { type PaymentRequest } from '../entities/index';
 
 export async function processPayment(data: PaymentRequest) {
   const product = await productRepository.findById(data.productId);

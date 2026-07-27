@@ -1,4 +1,5 @@
 import { z } from 'zod';
+export type { Product, Customer, Transaction, Delivery } from './types';
 
 export const paymentRequestSchema = z.object({
   name: z.string().min(2).max(100),

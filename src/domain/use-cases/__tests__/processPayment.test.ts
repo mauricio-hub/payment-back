@@ -1,37 +1,37 @@
 import { processPayment } from '../processPayment';
-import { productRepository } from '../../repositories/productRepository';
-import { customerRepository } from '../../repositories/customerRepository';
-import { deliveryRepository } from '../../repositories/deliveryRepository';
-import { transactionRepository } from '../../repositories/transactionRepository';
-import { getPaymentProvider } from '../../services/paymentProvider';
+import { productRepository } from '../../../infrastructure/repositories/productRepository';
+import { customerRepository } from '../../../infrastructure/repositories/customerRepository';
+import { deliveryRepository } from '../../../infrastructure/repositories/deliveryRepository';
+import { transactionRepository } from '../../../infrastructure/repositories/transactionRepository';
+import { getPaymentProvider } from '../../../infrastructure/services/paymentProvider';
 
-jest.mock('../../repositories/productRepository', () => ({
+jest.mock('../../../infrastructure/repositories/productRepository', () => ({
   productRepository: {
     findById: jest.fn(),
     updateStock: jest.fn(),
   },
 }));
 
-jest.mock('../../repositories/customerRepository', () => ({
+jest.mock('../../../infrastructure/repositories/customerRepository', () => ({
   customerRepository: {
     create: jest.fn(),
   },
 }));
 
-jest.mock('../../repositories/transactionRepository', () => ({
+jest.mock('../../../infrastructure/repositories/transactionRepository', () => ({
   transactionRepository: {
     create: jest.fn(),
     updateStatus: jest.fn(),
   },
 }));
 
-jest.mock('../../repositories/deliveryRepository', () => ({
+jest.mock('../../../infrastructure/repositories/deliveryRepository', () => ({
   deliveryRepository: {
     create: jest.fn(),
   },
 }));
 
-jest.mock('../../services/paymentProvider', () => ({
+jest.mock('../../../infrastructure/services/paymentProvider', () => ({
   getPaymentProvider: jest.fn(),
 }));
 

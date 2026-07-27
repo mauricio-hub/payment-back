@@ -1,5 +1,5 @@
 import { prisma } from '../database/prisma';
-import { type Transaction } from '../types/index';
+import { type Transaction } from '../../domain/entities/index';
 
 export const transactionRepository = {
   async create(data: {
