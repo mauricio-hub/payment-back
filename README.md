@@ -1,23 +1,28 @@
 # Payment Backend API
 
-A Node.js/Express backend for processing credit card payments with clean architecture patterns (Controllers → Use Cases → Repositories).
+A Node.js/Express backend for processing credit card payments with Domain-Driven Design architecture (Controllers → Use Cases → Repositories).
 
 ## Architecture
 
-The codebase follows a **layered architecture** with separation of concerns:
+The codebase is split into `domain/` (business logic, framework-independent) and `infrastructure/` (technical implementations):
 
 ```
 src/
-├── controllers/      # HTTP handlers - validate input, orchestrate use cases
-├── use-cases/        # Business logic - payment processing, product queries
-├── repositories/     # Data access layer - Prisma abstractions
-├── services/         # External integrations - payment provider abstraction
-├── routes/           # API route definitions
-├── types/            # TypeScript interfaces and types
-├── schemas/          # Zod validation schemas for request/response
-├── errors/           # Centralized error definitions
-├── middlewares/      # Express middleware (error handling, CORS)
-└── database/         # Database configuration
+├── domain/
+│   ├── entities/      # TypeScript types and Zod validation schemas
+│   ├── errors/         # AppError class and centralized error codes
+│   └── use-cases/      # Business logic - payment processing, product queries
+│
+├── infrastructure/
+│   ├── database/        # Prisma client configuration
+│   ├── http/
+│   │   ├── controllers/ # HTTP handlers - validate input, call use cases
+│   │   ├── middlewares/ # Express error handler (catches AppError/ZodError)
+│   │   └── index.ts     # API route definitions
+│   ├── repositories/    # Data access layer - Prisma abstractions
+│   └── services/        # External integrations - payment provider abstraction
+│
+└── index.ts            # App entry point
 ```
 
 ## Tech Stack
@@ -34,7 +39,7 @@ src/
 ### Prerequisites
 - Node.js 20+
 - npm 10+
-- PostgreSQL (for production)
+- PostgreSQL (local via Docker, or a hosted instance)
 
 ### Installation
 
@@ -82,11 +87,12 @@ npm run test:coverage # Generate coverage report
 
 ## Database
 
-### Local Development
-Uses SQLite automatically. Database file: `test.db`
+Uses PostgreSQL in both development and production. Configure via `DATABASE_URL` environment variable.
 
-### Production
-Uses PostgreSQL. Configure via `DATABASE_URL` environment variable.
+For local development, run PostgreSQL via Docker:
+```bash
+docker run --name postgres-dev -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=payment_dev -p 5555:5432 -d postgres:latest
+```
 
 ### Schema
 - **Products**: Available items for purchase
