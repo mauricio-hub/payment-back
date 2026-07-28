@@ -29,7 +29,8 @@ src/
 
 - **Runtime**: Node.js 20+
 - **Framework**: Express.js 5
-- **Database**: PostgreSQL (production) / SQLite (development)
+- **Database**: PostgreSQL (development and production)
+- **API Docs**: Swagger (OpenAPI 3.0)
 - **ORM**: Prisma
 - **Validation**: Zod
 - **Language**: TypeScript
@@ -69,7 +70,7 @@ npm start
 
 ## API Endpoints
 
-Interactive Swagger documentation is available at `/docs` (e.g. `http://localhost:3000/docs`).
+Swagger API documentation was added and is available at `/docs` (e.g. `http://localhost:3000/docs`), covering both endpoints with request/response schemas and all error codes.
 
 ### Products
 - `GET /api/products` - List all available products
