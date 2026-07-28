@@ -70,7 +70,10 @@ npm start
 
 ## API Endpoints
 
-Swagger API documentation was added and is available at `/docs` (e.g. `http://localhost:3000/docs`), covering both endpoints with request/response schemas and all error codes.
+Swagger API documentation was added and is available at `/docs`, covering both endpoints with request/response schemas and all error codes.
+
+- Local: `http://localhost:3000/docs`
+- Production: https://payment-back-sz3p.onrender.com/docs/
 
 ### Products
 - `GET /api/products` - List all available products
