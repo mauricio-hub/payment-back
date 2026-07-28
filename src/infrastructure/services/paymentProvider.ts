@@ -10,11 +10,11 @@ export class TestProvider implements PaymentGateway {
     return new Promise((resolve) => {
       setTimeout(() => {
         // Tarjeta que siempre falla por fondos insuficientes
-        if (cardNumber === '5200828282828210') {
+      /*   if (cardNumber === '5200828282828210') {
           resolve({ success: false, reason: 'INSUFFICIENT_FUNDS' });
           return;
         }
-
+ */
         // Simular diferentes escenarios para otras tarjetas
         const random = Math.random();
 

@@ -69,13 +69,15 @@ npm start
 
 ## API Endpoints
 
+Interactive Swagger documentation is available at `/docs` (e.g. `http://localhost:3000/docs`).
+
 ### Products
 - `GET /api/products` - List all available products
   - Response: Array of products with id, name, price, stock
 
 ### Payment
 - `POST /api/payment` - Process a payment transaction
-  - Body: `{ productId, cardNumber, amount, customerDetails }`
+  - Body: `{ name, cardNumber, expiryDate, cvv, address, city, phone, productId }`
   - Response: `{ success, transactionId, message }`
 
 ## Testing
